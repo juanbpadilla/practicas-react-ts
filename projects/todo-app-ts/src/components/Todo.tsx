@@ -1,8 +1,10 @@
 import { Todo as TodoType } from "../types"
 
-type Props = TodoType
+interface Props extends TodoType {
+  onRemoveTodo: (id: string) => void
+}
 
-export const Todo = ({ id, title, completed }: Props) => {
+export const Todo = ({ id, title, completed, onRemoveTodo }: Props) => {
   return (
     <div className="view">
       <input
@@ -14,7 +16,10 @@ export const Todo = ({ id, title, completed }: Props) => {
       <label>{title}</label>
       <button
         className='destroy'
-        onClick={() => { }}
+        onClick={() => {
+          // TODO: esto podría enviarse desde mas arriba con el id para evitar el prop drilling
+          onRemoveTodo(id)
+        }}
       />
     </div>
   )

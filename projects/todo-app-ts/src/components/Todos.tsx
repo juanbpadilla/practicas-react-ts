@@ -4,9 +4,10 @@ import { Todo } from "./Todo"
 
 interface Props {
   todos: ListOfTodos
+  onRemoveTodo: (id: string) => void
 }
 
-export const Todos = ({ todos }: Props) => {
+export const Todos = ({ todos, onRemoveTodo }: Props) => {
   return (
     <ul className="todo-list">
       {todos.map(todo => (
@@ -16,6 +17,7 @@ export const Todos = ({ todos }: Props) => {
             id={todo.id}
             title={todo.title}
             completed={todo.completed}
+            onRemoveTodo={onRemoveTodo}
           />
         </li>
       ))}

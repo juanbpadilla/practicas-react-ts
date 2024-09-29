@@ -1,7 +1,7 @@
-import { Todo as TodoType } from "../types"
+import { TodoId, Todo as TodoType } from "../types"
 
 interface Props extends TodoType {
-  onRemoveTodo: (id: string) => void
+  onRemoveTodo: ({ id }: TodoId) => void
 }
 
 export const Todo = ({ id, title, completed, onRemoveTodo }: Props) => {
@@ -18,7 +18,7 @@ export const Todo = ({ id, title, completed, onRemoveTodo }: Props) => {
         className='destroy'
         onClick={() => {
           // TODO: esto podría enviarse desde mas arriba con el id para evitar el prop drilling
-          onRemoveTodo(id)
+          onRemoveTodo({ id })
         }}
       />
     </div>

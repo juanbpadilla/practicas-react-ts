@@ -5,7 +5,7 @@ const mockTodos = [
   {
     id: '1',
     title: 'todo 1',
-    completed: false
+    completed: true
   },
   {
     id: '2',
@@ -23,7 +23,9 @@ function App() {
   const [todos] = useState(mockTodos)
 
   return (
-    <Todos todos={todos} />
+    <div className="todoapp">
+      <Todos todos={todos} />
+    </div>
   )
 }
 

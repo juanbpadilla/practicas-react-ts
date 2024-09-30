@@ -1,7 +1,7 @@
 export const mockProducts = [
   {
     id: '1',
-    title: 'Non-Alcoholic Concentrated Perfume Oil',
+    title: 'Perfume Oil',
     description: 'Original Al Munakh® by Mahal Al Musk | Our Impression of Climate | 6ml Non-Alcoholic Concentrated Perfume Oil',
     price: 120,
     category: 'fragrances',

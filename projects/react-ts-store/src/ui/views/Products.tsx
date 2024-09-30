@@ -1,15 +1,6 @@
 import '../styles/Products.css'
 import { AddToCartIcon } from '../components/Icons'
-
-interface Product {
-  id: string
-  title: string
-  price: number
-  category: string
-  thumbnail: string
-}
-
-type ListOfProducts = Product[]
+import { ListOfProducts } from '../../entities/types'
 
 interface Props {
   products: ListOfProducts
@@ -27,7 +18,7 @@ export const Products = ({ products }: Props) => {
                 alt={product.title}
               />
               <div>
-                <strong>{product.title}</strong>
+                <strong>{product.title}</strong> - ${product.price}
               </div>
               <div>
                 <button>

@@ -31,6 +31,7 @@ export const Filters: React.FC<FiltersProps> = ({ setFilters, filters }) => {
           id='price'
           min='0'
           max='1000'
+          value={filters.minPrice}
           onChange={handleChangeMinPrice}
         />
         <span>${filters.minPrice}</span>

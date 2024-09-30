@@ -1,12 +1,9 @@
-import { Dispatch, SetStateAction } from 'react'
 import { Filters } from '../components/Filters'
+import { useFilters } from '../../entities/context/filterContext'
 
-interface HeaderProps {
-  setFilters: Dispatch<SetStateAction<{ category: string, minPrice: number }>>
-  filters: { category: string, minPrice: number }
-}
+export const Header = () => {
+  const { filters, setFilters } = useFilters()
 
-export const Header: React.FC<HeaderProps> = ({ setFilters, filters }) => {
   return (
     <header className="header">
       <h1>React Store 🛒</h1>

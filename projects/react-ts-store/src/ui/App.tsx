@@ -8,28 +8,46 @@ interface Props {
   products: ListOfProducts
 }
 
-function App() {
-  const [products] = useState(mockProducts)
-  const [filters] = useState({
+function useFilters() {
+  const [filters, setFilters] = useState({
     category: 'all',
-    price: 0
+    minPrice: 0
   })
 
   const filterProducts = ({ products }: Props) => {
     return products.filter(product => {
       return (
-        product.price >= filters.price && (
-          filters.category === 'all' || product.category === filters.category
+        product.price >= filters.minPrice &&
+        (
+          filters.category === 'all' ||
+          product.category === filters.category
         )
       )
     })
   }
 
+  return { filterProducts, setFilters, filters }
+}
+
+function App() {
+  const [products] = useState(mockProducts)
+  const { filterProducts, setFilters, filters } = useFilters()
+
+  // const filterProducts = ({ products }: Props) => {
+  //   return products.filter(product => {
+  //     return (
+  //       product.price >= filters.price && (
+  //         filters.category === 'all' || product.category === filters.category
+  //       )
+  //     )
+  //   })
+  // }
+
   const filteredProducts = filterProducts({ products })
 
   return (
     <>
-      <Header />
+      <Header setFilters={setFilters} filters={filters} />
       <Products products={filteredProducts} />
     </>
   )

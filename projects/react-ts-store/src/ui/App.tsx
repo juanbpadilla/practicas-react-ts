@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Products } from './views/Products'
 import { mockProducts } from '../infrastructure/mocks/products'
 import { ListOfProducts } from '../entities/types'
+import { Header } from './views/Header'
 
 interface Props {
   products: ListOfProducts
@@ -27,7 +28,10 @@ function App() {
   const filteredProducts = filterProducts({ products })
 
   return (
-    <Products products={filteredProducts} />
+    <>
+      <Header />
+      <Products products={filteredProducts} />
+    </>
   )
 }
 

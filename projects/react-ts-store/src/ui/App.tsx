@@ -1,8 +1,12 @@
-import './styles/App.css'
+import { useState } from 'react'
+import { Products } from './views/Products'
+import { mockProducts } from '../infrastructure/mocks/products'
 
 function App() {
+  const [products] = useState(mockProducts)
+
   return (
-    <h1>TS Shopping Cart 🛒</h1>
+    <Products products={products} />
   )
 }
 

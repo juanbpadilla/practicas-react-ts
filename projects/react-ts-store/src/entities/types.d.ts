@@ -7,3 +7,8 @@ export interface Product {
 }
 
 export type ListOfProducts = Product[]
+
+export interface Filters {
+  category: string;
+  minPrice: number;
+}

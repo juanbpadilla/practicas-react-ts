@@ -1,9 +1,10 @@
 import { Dispatch, SetStateAction } from 'react'
+import { Filters as filters } from '../../entities/types'
 import '../styles/Filters.css'
 
 interface FiltersProps {
   setFilters: Dispatch<SetStateAction<{ category: string, minPrice: number }>>
-  filters: { category: string, minPrice: number }
+  filters: filters
 }
 
 export const Filters: React.FC<FiltersProps> = ({ setFilters, filters }) => {
